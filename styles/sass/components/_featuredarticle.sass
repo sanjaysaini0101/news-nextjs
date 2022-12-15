@@ -1,0 +1,76 @@
+/* FEATURED ARTICLE COMPONENT STYLES - COMPONENTS/FEATUREDARTICLE */
+
+.featured-article
+  +respond-to($breakpoint-xxlarge, min)
+    max-width: 65%
+
+
+  +respond-to($breakpoint-large)
+    max-width: 100%
+
+
+  +respond-to($breakpoint-medium)
+    height: px-to-em(550)
+
+  +respond-to($breakpoint-small)
+    height: px-to-em(450)
+
+
+  max-width: 67.5%
+  width: 100%
+
+  > figcaption
+    @extend %article-banner-featured
+
+    padding: 10px
+    padding-left: 0px
+
+    +respond-to($breakpoint-medium)
+      padding: 0px
+
+%article-banner-featured
+  +respond-to($breakpoint-xxlarge, min)
+    height: 27.5%
+
+
+  +respond-to($breakpoint-large)
+    height: 32.5%
+
+
+  +respond-to($breakpoint-medium)
+    height: 27.5%
+
+
+  background-color: rgba($accent-med, 0.95)
+  border-top: 5px solid white
+  height: 25%
+
+  > .container
+    .article-block-author,
+    .article-block-published
+      +respond-to($breakpoint-small)
+        font-size: px-to-em(15)
+
+
+      font-size: px-to-em(16)
+
+    .article-block-author
+      color: black
+
+    .article-block-published,
+    .article-block-title
+      color: white
+
+    .article-block-title
+      +respond-to($breakpoint-small)
+        font-size: px-to-em(16)
+
+
+      font:
+        size: px-to-em(18)
+        weight: 600
+      margin-bottom: 10px
+
+    &.article-block-image
+      +respond-to($breakpoint-small)
+        height: 350px

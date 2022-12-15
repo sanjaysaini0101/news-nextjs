@@ -1,0 +1,288 @@
+/* HELPER CLASSES */
+
+$major-rows: ('width': px-to-em(360), 'gutter': map-get($rows_config, gutter), 'max': 2)
+$major-rows-short: map-set($major-rows, max, 1)
+
+$minor-rows: ('width': px-to-em(260), 'gutter': map-get($major-rows, gutter), 'max': 1)
+
+$columns: ('width': 1fr, 'gutter': map-get($major-rows, gutter), 'max': 20)
+
+%article-banner
+  background-color: rgba($dark, 0.95)
+  border-top: 2px solid white
+
+  > .container
+    .article-block-author
+      color: #e83950
+
+    .article-block-published
+      color: $light
+
+%article-banner-alt
+  background-color: rgba($accent-med, 0.875)
+  border-top: 2px solid white
+
+  > .container
+    .article-block-author
+      color: black
+
+    .article-block-published
+      color: white
+
+%major-articles-grid
+  +grid(grid, $major-rows, $columns)
+
+  width: 100%
+
+  +respond-to($breakpoint-small)
+    //stack the grid on mobile
+    display: flex
+    flex-direction: column
+
+    > figure
+      height: 300px
+      width: 100%
+      margin-bottom: 10px
+
+
+  > figure
+    &:nth-of-type(4n+1),
+    &:nth-of-type(4n+4)
+      > figcaption
+        @extend %article-banner
+
+    &:nth-of-type(4n+2),
+    &:nth-of-type(4n+3)
+      > figcaption
+        @extend %article-banner
+
+    &:nth-of-type(4n+1)
+      +grid_item(1, 1, 1, 9)
+
+    &:nth-of-type(4n+2)
+      +grid_item(1, 1, 10, 11)
+
+    &:nth-of-type(4n+3)
+      +grid_item(2, 1, 1, 11)
+
+    &:nth-of-type(4n+4)
+      +grid_item(2, 1, 12, 9)
+
+%related-articles-list
+  display: flex
+
+  +respond-to($breakpoint-medium)
+    flex-direction: column
+
+
+  > figure
+    width: 500px
+    height: 300px
+    margin-right: 10px
+
+    +respond-to($breakpoint-medium)
+      margin-bottom: 10px
+
+
+    +respond-to($breakpoint-small)
+      width: 100%
+
+  > figure
+    &:first-of-type,
+    &:last-of-type
+      > figcaption
+        @extend %article-banner
+
+    &:nth-of-type(2)
+      > figcaption
+        @extend %article-banner
+
+    > figcaption
+      height: 40%
+
+      > .container > a
+        font-size: 1em
+
+%minor-articles-grid
+  +grid(grid, $minor-rows, $columns)
+
+  > figure
+    +grid_item(1, 1, 1, 14)
+
+    figcaption
+      @extend %article-banner
+
+%single-article
+  display: flex
+  flex-direction: column
+
+  figure
+    height: px-to-em(325px)
+    min-height: px-to-em(325px)
+
+    +respond-to($breakpoint-medium)
+      width: 100%
+
+  figcaption
+    @extend %article-banner
+
+    > .container
+      .article-block-title
+        font-size: px-to-em(14)
+
+      .article-block-author,
+      .article-block-published
+        font-size: px-to-em(13)
+
+%right-rail
+  +flex(column, center, flex-start)
+
+  max-width: 27.5%
+  margin-left: px-to-em(45px)
+  min-width: min-content
+
+  > div
+    margin-bottom: px-to-em(32px)
+
+  > .advertisement
+    max-width: min-content
+
+  > .articles
+    min-width: 100%
+
+    &.opinion
+      .first-featured
+        > .article-block
+          @extend %single-article
+
+// ! FIXME
+.advertisments
+  > .container
+    +respond-to(px-to-em(832))
+      .ad-desktop
+        +flex(row, center, center)
+
+        max-width: 100%
+
+.center
+  +flex(row, center, center)
+
+.column
+  +flex(column, stretch, flex-start)
+
+// container for homepage
+.container
+  height: 100%
+  margin: 0 auto
+  max-width: $max-width
+  width: 100%
+
+// containers for any page but the homepage
+.container-narrow
+  height: 100%
+  margin: 0 auto
+  width: 1200px
+  max-width: $max-width
+
+.flex
+  display: flex
+
+.first-featured
+  display: flex
+  flex-direction: column
+  align-items: center
+
+  > .article-block
+    @extend %single-article
+
+    figcaption
+      +respond-to($breakpoint-small)
+        height: 47.5%
+
+    width: 100%
+
+.left-rail
+  max-width: 72.5%
+  width: 100%
+
+  +respond-to($breakpoint-medium)
+    max-width: 100%
+
+.right-rail
+  @extend %right-rail
+
+  +respond-to($breakpoint-medium)
+    display: none
+
+.right-rail-show
+  @extend %right-rail
+
+  +respond-to($breakpoint-medium)
+    margin-left: 0px
+
+.disappear
+  height: 0 !important
+  opacity: 0 !important
+  padding: 0 !important
+  width: 0 !important
+
+.major-articles-grid
+  @extend %major-articles-grid
+
+.major-articles-grid.short-grid
+  @extend %major-articles-grid
+
+  +grid(grid, $major-rows-short, $columns)
+
+.minor-articles-grid
+  @extend %minor-articles-grid
+
+.related-articles-list
+  @extend %related-articles-list
+
+.single-article
+  @extend %single-article
+
+.row
+  +flex
+  +respond-to($breakpoint-schmedium)
+    flex-direction: column
+
+.scrolled
+  position: fixed
+  z-index: 5
+
+.display-none
+  display: none !important
+
+.preload
+  opacity: 0
+
+.postload
+  opacity: 1
+  transition: opacity 0.5s
+
+.page
+  margin-bottom: 30px
+
+  hr
+    display: block
+    height: 1px
+    border: 0
+    border-top: 1px solid #ccc
+    margin: 1em 0
+    padding: 0
+
+.desktop-only
+  +respond-to($breakpoint-medium)
+    display: none
+
+.mobile-only
+  +respond-to($breakpoint-schmedium)
+    display: block
+
+.tablet-and-below-only
+  display: none
+
+  +respond-to($breakpoint-medium)
+    display: block

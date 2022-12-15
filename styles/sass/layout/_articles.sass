@@ -1,0 +1,49 @@
+/* GROUP ARTICLES STYLES */
+
+.articles
+  +respond-to($breakpoint-schmedium)
+    &.article-block-title
+      font-size: 1em
+
+    &.article-block-author
+      font-size: 0.7em
+
+    &.article-block-published
+      font-size: 0.7em
+
+
+  a > h1:hover
+    color: $accent-dark
+
+  h1
+    color: #222222
+    font:
+      size: 1em
+      weight: 800
+    text-transform: uppercase
+
+    &:before
+      background-color: $accent-med
+      content: ''
+      display: block
+      height: 0.25rem
+      margin-bottom: 0.5em
+      width: 1.2em
+
+  .sponsored h1:before
+    background-color: gold
+
+.grey-box
+  min-height: 300px
+  margin: 5px
+  background-color: lightgrey
+  display: flex
+  align-items: center
+  justify-content: center
+
+  > p
+    color: grey
+    font-size: 20px
+
+  &.first-featured
+    height: 800px

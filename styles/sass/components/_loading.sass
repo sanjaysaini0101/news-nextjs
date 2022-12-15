@@ -1,0 +1,42 @@
+////
+/// Loading styles
+/// @group molecules-loading
+////
+
+.loading
+  > .container .fa-spinner,
+  .fa-spinner
+    color: $accent-med
+    font-size: px-to-em(30)
+
+  > .container
+    +flex(row, center, center)
+
+    height: 100%
+
+    > div
+      +flex(column, center, center)
+
+      overflow: hidden
+
+      > p
+        color: $dark
+        font-weight: 600
+        margin: map-get($rows_config, gutter) 0
+        text-transform: uppercase
+
+      > h1
+        font-weight: 500
+
+#app
+  > .loading
+    height: 100vh
+    width: 100vw
+
+.loading-text
+  color: black
+  font-family: dbkFont
+
+.fadeInOut
+  opacity: 1
+  animation: fadeInOut 2s infinite

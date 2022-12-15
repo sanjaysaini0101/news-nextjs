@@ -1,0 +1,41 @@
+$row-width: map-get($rows-config, width)
+$row-gutter: map-get($rows-config, gutter)
+
+$nav-height: 56px
+$nav-height-mobile: 75px
+
+header
+  width: 100vw
+
+.header-main
+  +respond-to($breakpoint-medium)
+    display: none
+    opacity: 0
+    width: 0%
+
+
+  > .container
+    +flex(row, flex-end, space-between)
+    +respond-to($breakpoint-schmedium)
+      padding: 0
+
+
+    > a
+      width: 17.5%
+      min-width: 200px
+
+      > img
+        width: 100%
+
+    padding: $row-width 0 px-to-em(20)
+
+.sticky-on-scroll
+  position: sticky
+  position: -webkit-sticky
+  top: 0
+  max-height: 100%
+  z-index: 10000
+
+#masthead
+  +respond-to($breakpoint-schmedium)
+    display: none

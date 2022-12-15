@@ -1,0 +1,117 @@
+////
+/// Global variables
+/// @group variables
+////
+
+/// Colors
+
+/// Dark base color
+/// @type color
+$dark: #151515
+
+/// Grey
+/// @type color
+$grey: rgba(151, 151, 151, 1)
+
+/// Off white
+/// @type color
+$light: rgba(249, 250, 252, 1)
+
+/// White
+/// @type color
+$white: rgba(255, 255, 255, 1)
+
+/// Diamondback blue
+/// @type color
+$accent-dark: #3468AC
+
+/// Diamondback red
+/// @type color
+$accent-med: #E51D37
+
+/// Diamondback yellow
+/// @type color
+$accent-med-2: #FFD700
+
+/// off white blue
+/// @type color
+$accent-light: rgba(237, 241, 246, 1)
+
+/// Fonts
+
+/// Regular text font stack
+/// @type List
+$font-stack: 'IBM Plex Sans', Helvetica, Helvetica Neue, Open Sans, Arial, sans-serif !default
+
+/// Serif font family
+/// @type List
+$serif-font-stack: Georgia, Times, Times New Roman, serif !default
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: Courier New, DejaVu Sans Mono, Bitstream Vera Sans Mono, Monaco, monospace !default
+
+/// Constants
+
+/// Url where all assets are served from
+/// @type string
+$base-url: '../../assets/'
+
+/// Layout
+
+/// Maxium container width
+/// @type percentage
+$max-width: 87.5% !default
+
+/// Default border style
+/// @type percentage
+$border: 1px solid rgba($grey, 0.5)
+
+/// Columns map
+/// @type {Map}
+/// @prop {string} keys - identifiers mapped to a given length
+/// @prop {number} values - width and gutter width expressed in ems + max cols
+$columns_config: ('width': px-to-em(85), 'gutter': px-to-em(20), 'max': 12)
+
+/// Rows map
+/// @type {Map}
+/// @prop {string} keys - identifiers mapped to a given length
+/// @prop {number} values - width and gutter width expressed in ems
+$rows_config: ('width': px-to-em(42.5), 'gutter': px-to-em(8.5), 'max': 12)
+
+/// Breakpoints
+/// Breakpoints will be converted to ems when used respond-to mixin
+
+/// Extra small device breakpoint
+/// @type number
+$breakpoint-xsmall: 320px
+
+/// Small device breakpoint
+/// @type number
+$breakpoint-small: 480px
+
+/// Tablet size device breakpoint
+/// @type number
+$breakpoint-schmedium: 768px
+
+///  Desktop / laptop size breakpoint
+/// @type number
+$breakpoint-medium: 980px
+
+///  Desktop / laptop size breakpoint
+/// @type number
+$breakpoint-large: 1200px
+
+/// Desktop / laptop size breakpoint
+/// @type number
+$breakpoint-xlarge: 1440px
+
+/// Widescreen breakpoint
+/// @type number
+$breakpoint-xxlarge: 1920px
+
+/// breakpoints map
+/// @type {Map}
+/// @prop {string} keys - identifiers mapped to a given length
+/// @prop {number} values - actual breakpoints expressed in px
+$breakpoints: ('xsmall': $breakpoint-xsmall, 'small': $breakpoint-small, 'schmedium': $breakpoint-schmedium, 'medium': $breakpoint-medium, 'large': $breakpoint-large, 'xlarge': $breakpoint-xlarge)
